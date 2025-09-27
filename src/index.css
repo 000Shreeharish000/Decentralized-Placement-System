@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Classic Windows 95/98 Design System */
+@layer base {
+  :root {
+    /* Windows 95 Color Palette */
+    --win95-gray: 0 0% 75%;
+    --win95-light-gray: 0 0% 88%;
+    --win95-dark-gray: 0 0% 50%;
+    --win95-darker-gray: 0 0% 25%;
+    --win95-white: 0 0% 100%;
+    --win95-black: 0 0% 0%;
+    --win95-blue: 214 100% 50%;
+    --win95-navy: 214 100% 25%;
+    --win95-red: 0 100% 50%;
+    --win95-yellow: 60 100% 75%;
+    --win95-teal: 180 100% 40%;
+    
+    /* Theme Mappings */
+    --background: var(--win95-gray);
+    --foreground: var(--win95-black);
+    --card: var(--win95-light-gray);
+    --card-foreground: var(--win95-black);
+    --popover: var(--win95-light-gray);
+    --popover-foreground: var(--win95-black);
+    --primary: var(--win95-blue);
+    --primary-foreground: var(--win95-white);
+    --secondary: var(--win95-gray);
+    --secondary-foreground: var(--win95-black);
+    --muted: var(--win95-light-gray);
+    --muted-foreground: var(--win95-dark-gray);
+    --accent: var(--win95-teal);
+    --accent-foreground: var(--win95-white);
+    --destructive: var(--win95-red);
+    --destructive-foreground: var(--win95-white);
+    --border: var(--win95-dark-gray);
+    --input: var(--win95-white);
+    --ring: var(--win95-blue);
+    --radius: 0rem;
+
+    /* Windows Effects */
+    --win95-border-raised: inset -1px -1px hsl(var(--win95-dark-gray)), inset 1px 1px hsl(var(--win95-white));
+    --win95-border-sunken: inset 1px 1px hsl(var(--win95-dark-gray)), inset -1px -1px hsl(var(--win95-white));
+    --win95-title-gradient: linear-gradient(90deg, hsl(var(--win95-blue)), hsl(var(--win95-navy)));
+  }
+
+  .dark {
+    /* Dark mode uses same values for terminal theme */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'MS Sans Serif', sans-serif;
+    background: hsl(var(--win95-gray));
+  }
+
+  /* Windows 95 Panel Styles */
+  .win95-panel {
+    background: hsl(var(--win95-gray));
+    border: 2px outset hsl(var(--win95-gray));
+    box-shadow: var(--win95-border-raised);
+  }
+
+  .win95-panel-inset {
+    background: hsl(var(--win95-light-gray));
+    border: 2px inset hsl(var(--win95-gray));
+    box-shadow: var(--win95-border-sunken);
+  }
+
+  /* Windows 95 Button Styles */
+  .win95-button {
+    background: hsl(var(--win95-gray));
+    border: 2px outset hsl(var(--win95-gray));
+    color: hsl(var(--win95-black));
+    padding: 4px 16px;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    min-height: 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .win95-button:hover {
+    background: hsl(var(--win95-light-gray));
+  }
+
+  .win95-button:active {
+    border: 2px inset hsl(var(--win95-gray));
+    background: hsl(var(--win95-dark-gray) / 0.1);
+  }
+
+  .win95-button:disabled {
+    color: hsl(var(--win95-dark-gray));
+    background: hsl(var(--win95-gray));
+  }
+
+  /* Windows 95 Title Bar */
+  .win95-titlebar {
+    background: var(--win95-title-gradient);
+    color: hsl(var(--win95-white));
+    padding: 2px 4px;
+    font-weight: bold;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .win95-window {
+    background: hsl(var(--win95-gray));
+    border: 2px outset hsl(var(--win95-gray));
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Windows 95 Input Fields */
+  .win95-input {
+    background: hsl(var(--win95-white));
+    border: 2px inset hsl(var(--win95-gray));
+    padding: 2px 4px;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+  }
+
+  .win95-input:focus {
+    outline: 1px dotted hsl(var(--win95-black));
+    outline-offset: -3px;
+  }
+
+  /* Windows 95 Menu Bar */
+  .win95-menubar {
+    background: hsl(var(--win95-gray));
+    border-bottom: 1px solid hsl(var(--win95-dark-gray));
+    padding: 4px;
+  }
+
+  /* Windows 95 Status Bar */
+  .win95-statusbar {
+    background: hsl(var(--win95-gray));
+    border-top: 1px solid hsl(var(--win95-dark-gray));
+    padding: 2px 4px;
+    font-size: 11px;
+    border: 1px inset hsl(var(--win95-gray));
+  }
+
+  /* Windows 95 List View */
+  .win95-listview {
+    background: hsl(var(--win95-white));
+    border: 2px inset hsl(var(--win95-gray));
+  }
+
+  /* Windows 95 Desktop Pattern */
+  .win95-desktop {
+    background: hsl(var(--win95-gray));
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+      );
+  }
+}
